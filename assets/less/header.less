@@ -1,0 +1,108 @@
+header.main {
+    clear:both;
+    display: block;
+    float: none;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+.main-header__wrap{
+
+    .main-header__logo{
+    .make-xs-column(2);
+
+        img {
+            max-width: 100%;
+            max-height: 80px;
+        }
+    }
+    .make-xs-column(12);
+    h1 {
+        .make-xs-column(8);
+        font-size: 72px;
+        margin-bottom: 0;
+        color: #cc6c30;
+        padding-top: 25px;
+        float: left;
+        padding-left: 50px;
+    }
+    .main-header__utility{
+        .make-xs-column(2);
+        background-image: url('assets/images/contact-us-bg.png');
+        background-repeat: no-repeat;
+        height: 60px;
+        a{
+            color: @white;
+        }
+    }
+}
+
+
+.main-header__mobile-nav-trigger{
+    .make-xs-column(2);
+    .make-xs-column-offset(6);
+    span {
+        height: 4px;
+        background-color: @orange;
+        width: 100%;
+        display: block;
+        margin-bottom: 3px;
+
+    }
+    @media(min-width:768px){
+        display: none;
+    }
+}
+
+
+
+
+section.main-header__primary-wrap{
+    width: 100vw;
+    clear: both;
+    background-image: url('assets/images/bg_mainnav.gif');
+   // overflow: hidden;
+}
+
+
+nav.main-header__primary{
+    background-color: @orange;
+    .make-xs-column(12);
+    @media(min-width:768px){
+        .make-md-column(10);
+        position: static;
+        float: none!important;
+        margin: auto;
+    }
+    ul {
+        overflow: hidden;
+        li {
+            list-style-type: none;
+            display: block;
+             @media(min-width:768px){
+                float: left;
+            }
+            a{
+                color: white;
+                padding: 10px 20px;
+               display: block;
+            }
+            &:hover > ul { //hover
+                background-color: @lt-orange;
+            }
+            ul { //dropdown
+                position: absolute;
+                z-index: 999999;
+                li {
+                    display: block;
+                    float: none;
+                }
+            }
+        }
+    }
+}

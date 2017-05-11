@@ -1,21 +1,23 @@
 <?php
 /**
- * Template Name: Front Page Template
+ * Template Name: Find Us Template
  * @package WordPress
- * @subpackage YNK Theme
+ * @subpackage Starter Theme
  * @since 1.0
  */
 ?>
+
+
 <?php get_header();?>
 
-<section class="front-page__body-content">
 <?php if ( have_posts() ) : ?>
     <?php while ( have_posts() ) : the_post(); ?>    
-    <?php the_title();?>
-    <?php the_content();?>
+    <section class="page__wrap">
+    <h1><?php the_title();?></h1>
+    <p><?php the_content();?></p>
+    <?php get_template_part('tabs');?>
+</section>
     <?php endwhile; ?>
 <?php endif; ?>
-</section>
 <?php get_sidebar();?>
-
 <?php get_footer();?>

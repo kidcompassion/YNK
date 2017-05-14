@@ -40,7 +40,7 @@ function ynk_products() {
         'singular_name' => __( 'Product' )
       ),
       'public' => true,
-      'has_archive' => true,
+      'has_archive' => false,
       'publicly_queryable' => true,
       'show_ui' => true,
       'query_var' => true,

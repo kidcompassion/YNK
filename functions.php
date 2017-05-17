@@ -29,7 +29,38 @@ add_action( 'init', 'startertheme_register_menus' );
 add_theme_support( 'post-thumbnails');
 
 
-//Memberships CPT
+
+
+function ynk_product_types() {
+  register_taxonomy(
+    'product-types',
+    'products',
+    array(
+      'label' => __( 'Product Types' ),
+      'hierarchical'      =>  true,
+      'query_var'    => true,
+      'rewrite' => array( 'slug' => 'product-types','with_front' => true ),
+    )
+  );
+}
+add_action( 'init', 'ynk_product_types' );
+
+
+
+function ynk_product_sectors() {
+  register_taxonomy(
+    'product-sectors',
+    'products',
+    array(
+      'label' => __( 'Product Sectors' ),
+      'hierarchical'      =>  true,
+      'rewrite' => array( 'slug' => 'product-sectors', 'with_front' => true ),
+    )
+  );
+}
+add_action( 'init', 'ynk_product_sectors' );
+
+
 add_action( 'init', 'ynk_products' );
 
 function ynk_products() {
@@ -42,31 +73,65 @@ function ynk_products() {
       'public' => true,
       'has_archive' => false,
       'publicly_queryable' => true,
+      'rewrite'=> array('slug'=>'products'),
       'show_ui' => true,
       'query_var' => true,
       'menu_icon' => 'dashicons-cart',
       'hierarchical' => false,
       'menu_position' => 3,
-      'supports' => array('title', 'editor', 'thumbnail')
+      'supports' => array('title', 'editor', 'thumbnail'),
+      'taxonomies' => array( 'product-types', 'product-sectors' )
+
     )
   );
 }
 
 
 
-function ynk_product_types() {
-  register_taxonomy(
-    'product-types',
-    'products',
-    array(
-      'label' => __( 'Product Types' ),
-      'hierarchical'      =>  true,
-      'rewrite' => array( 'slug' => 'products' ),
-    )
+
+
+
+
+add_filter( 'manage_edit-products_columns', 'ynk_products_columns' ) ;
+
+function ynk_products_columns( $columns ) {
+
+  $columns = array(
+    'cb' => '<input type="checkbox" />',
+    'title' => __( 'Product' ),
+    'sector' => __( 'Sector' ),
+    'date' => __( 'Date' )
   );
+
+  return $columns;
 }
-add_action( 'init', 'ynk_product_types' );
 
 
+add_action( 'manage_products_posts_custom_column', 'ynk_manage_product_columns', 10, 2 );
+
+function ynk_manage_product_columns( $column, $post_id ) {
+  global $post;
+
+  switch( $column ) {
+
+
+
+    case 'sector' :
+
+    $sector = wp_get_post_terms( $post->ID, 'product-sectors');
+
+        if (isset($sector[0]->name)):
+
+          echo $sector[0]->name;
+      endif;
+      break;
+
+
+
+    /* Just break out of the switch statement for everything else. */
+    default :
+      break;
+  }
+}
 
 ;?>

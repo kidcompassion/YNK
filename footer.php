@@ -1,3 +1,4 @@
+</section><!--container-->
 <footer>
 <section class="footer-menu">
     <?php wp_nav_menu( array( 'theme_location' => 'footer-menu-1' ) ); ?>

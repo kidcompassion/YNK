@@ -18,6 +18,23 @@ footer {
         }
         ul {
             li {
+                &.menu-item-has-children{
+                    font-weight: bold;
+                    a{
+                        cursor: default;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                    ul {
+                        li {
+                            font-weight: normal;
+                            a{
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
 
             }
 

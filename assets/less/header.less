@@ -170,16 +170,19 @@ nav.main-header__primary{
 
         }
         @media(min-width:@screen-lg-min){
-            width: 90%;
+            
             .element-reset(0px, 0px);
         }
         li {
+
             list-style-type: none;
             text-align: center;
             display: block;
             background-color: @orange;
              @media(min-width:@screen-md-min){
-                float: left;
+                 width:14%;
+                 float: left;
+                
                 border-left: solid 1px white;
                 
             }
@@ -224,7 +227,8 @@ nav.main-header__primary{
                     left: -99999px;
                 }
                 li {
-
+                    width: 100%;
+                    padding: 5px 10px;
                     @media(min-width:@screen-md-min){
                     display: block;
                     border: none;
@@ -240,7 +244,7 @@ nav.main-header__primary{
                         color: @orange;
                         border-bottom: solid 1px @lt-orange;
                         @media(min-width:@screen-md-min){
-                            border-bottom: none;
+                            border-bottom: solid 1px @orange;
                             background-color: @lt-orange;
                             color: @white;
                         }

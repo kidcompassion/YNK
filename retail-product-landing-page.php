@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Products Landing Page
+ * Template Name: Retail Products Landing Page
  *
  * @package WordPress
  * @subpackage Starter Theme
@@ -25,18 +25,20 @@
     </aside>
 <section class="product__categories">
 
-        <?php   $terms = get_terms( array(
+        <?php   $types_terms = get_terms( array(
     'taxonomy' => 'product-types',
     'hide_empty' => false,
 ) );?>
 
 
 <?php 
-foreach($terms as $t):?>
-   <a class="product__details"> 
+foreach($types_terms as $t):?>
+
+   <a href="<?php echo home_url()?>/retail-products/<?php echo $t->slug;?>" class="product__details"> 
    <img src="<?php if (function_exists('ttw_thumbnail_url')) echo ttw_thumbnail_url($t->term_id); ?>"/>
     <p><?php echo $t->name;?></p>
     </a>
+
 
 <?php endforeach;?>
 </section>

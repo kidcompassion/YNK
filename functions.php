@@ -20,7 +20,8 @@ function startertheme_register_menus() {
   register_nav_menu('footer-menu-5',__( 'Footer Menu Five' ));
   register_nav_menu('footer-menu-6',__( 'Footer Menu Six' ));
   register_nav_menu('footer-menu-7',__( 'Footer Menu Seven' ));
-  register_nav_menu('sidebar-products',__( 'Sidebar Products' ));
+  register_nav_menu('food-service-sidebar-products',__( 'Food Service Sidebar Products' ));
+  register_nav_menu('retail-sidebar-products',__( 'Retail Sidebar Products' ));
   
 }
 add_action( 'init', 'startertheme_register_menus' );
@@ -29,6 +30,10 @@ add_action( 'init', 'startertheme_register_menus' );
 add_theme_support( 'post-thumbnails');
 
 
+function new_excerpt_more( $more ) {
+    return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
 function ynk_product_types() {
@@ -133,5 +138,48 @@ function ynk_manage_product_columns( $column, $post_id ) {
       break;
   }
 }
+
+
+
+
+/* Add custom text formats to the WYSIWYG =*/
+function ynk_mce_buttons_2($buttons) { 
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+add_filter('mce_buttons_2', 'ynk_mce_buttons_2');
+
+//Generate the custom styles to be used
+function ynk_before_init_insert_formats( $init_array ) {  
+    $style_formats = array(  
+          array(
+            'title' => 'Text colors',
+                'items' => array(
+                    array(  
+                        'title' => 'Pink Capital Letters',  
+                        'inline' => 'span',  
+                        'classes' => 'pink-capitalized-letters',
+                        'wrapper' => false,
+                    ),
+                    array(  
+                        'title' => 'Pink Handwriting',  
+                        'inline' => 'span',  
+                        'classes' => 'pink-handwriting',
+                        'wrapper' => true,
+                    ),
+                   
+                ),
+        ),
+    );  
+    $init_array['style_formats'] = json_encode( $style_formats );  
+    return $init_array;  
+} 
+
+add_filter( 'tiny_mce_before_init', 'ynk_before_init_insert_formats' ); 
+
+function ynk_add_editor_styles() {
+    add_editor_style( 'ynk-custom-editor-styles.css' );
+}
+add_action( 'init', 'ynk_add_editor_styles' );
 
 ;?>

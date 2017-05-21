@@ -4,3 +4,31 @@
      .make-md-column(5);
     }
 }
+
+.nana-sidebar {
+     .make-xs-column(12);
+    @media(min-width:@screen-md-min){
+        .make-md-column(3);
+    }
+
+}
+
+.products__submenu {
+    .current_page_item, .current_page_parent{
+        background-color: transparent;
+    }
+    @media(min-width:@screen-md-min){
+    }
+}
+
+.post_sidebar {
+      .make-xs-column(12);
+    @media(min-width:@screen-md-min){
+     .make-md-column(4);
+     .make-md-column-offset(1);
+    }
+    img {
+        min-width: 100%;
+        height: auto;
+    }
+}

@@ -3,6 +3,7 @@ header.main {
     .make-xs-column(12);
     display: block;
     float: none;
+    overflow: hidden;
     @media(min-width:@screen-md-min){
         .make-md-column(10);
         float: none!important;
@@ -16,11 +17,15 @@ header.main {
     .element-reset(0px, 0px);
     padding-bottom: 5px;
     border-bottom: solid 1px @orange;
+    @media(min-width:@screen-md-min){
+        border-bottom: none;
+    }
     .main-header__logo{
         .make-xs-column(2);
         .element-reset(0px, 0px);
         padding-top: 10px;
         @media(min-width:@screen-md-min){
+
             display: inline-block;
             .make-md-column(2);
             float: left;
@@ -33,7 +38,7 @@ header.main {
             display: block;
 
             @media(min-width:@screen-md-min){
-                max-height: 120px;
+                max-height: 110px;
             }
         }
     }
@@ -41,6 +46,8 @@ header.main {
     h1 {
         .make-xs-column(8);
         text-align: center;
+        font-family: @bodyfont;
+
         color: #cc6c30;
         font-size: 28px;
         font-weight: normal;
@@ -165,16 +172,18 @@ nav.main-header__primary{
         &:extend(.nav);
         @media(min-width:@screen-md-min){
                //  .make-md-column(11);
-                 float: none!important;
-            margin: 0 auto;
+            float: none!important;
+            
+
 
         }
         @media(min-width:@screen-lg-min){
             
             .element-reset(0px, 0px);
+            margin-left: 20px;
         }
         li {
-
+        
             list-style-type: none;
             text-align: center;
             display: block;
@@ -182,12 +191,21 @@ nav.main-header__primary{
              @media(min-width:@screen-md-min){
                  width:14%;
                  float: left;
-                
                 border-left: solid 1px white;
                 
             }
-             @media(min-width:@screen-lg-min){
-                
+
+            &.current-menu-parent{
+                background-color: @lt-orange;
+            }
+            &.one-line{
+                padding: 6px 0px 6px 0px;
+                & > ul {
+                    margin-top: 6px;
+                }
+            }
+            &.keep-flat a{
+                padding: 10px 12px; 
             }
             &:first-of-type {
                  @media(min-width:@screen-md-min){
@@ -201,9 +219,10 @@ nav.main-header__primary{
                 text-decoration: none;
             }
             a{
-                color: white;
+                color: @white;
                 padding: 10px 20px;
                 display: block;
+                line-height: 12px;
             }
             &:hover > ul {
                 @media(min-width:@screen-md-min){
@@ -225,15 +244,18 @@ nav.main-header__primary{
                     position: absolute;
                     z-index: 999999;
                     left: -99999px;
+                    margin-left: 0px;
+
                 }
                 li {
                     width: 100%;
-                    padding: 5px 10px;
+                    
                     @media(min-width:@screen-md-min){
                     display: block;
                     border: none;
                     float: none;
                     text-align: left;
+                    padding-left: 10px;
                     background-color: transparent;
                     }
                     a{
@@ -247,6 +269,7 @@ nav.main-header__primary{
                             border-bottom: solid 1px @orange;
                             background-color: @lt-orange;
                             color: @white;
+                            padding: 10px 0px;
                         }
 
                     }
@@ -259,7 +282,7 @@ nav.main-header__primary{
 
 
 .current_page_item, .current_page_parent {
-    background-color: @lt-orange!important;
+    background-color: @lt-orange;
 }
 
 

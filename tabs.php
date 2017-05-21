@@ -8,8 +8,8 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="canada">CANADA</div>
-    <div role="tabpanel" class="tab-pane" id="united-states">US</div>
+    <div role="tabpanel" class="tab-pane active" id="canada"><?php the_field('tabs_canada');?></div>
+    <div role="tabpanel" class="tab-pane" id="united-states"><?php the_field('tabs_us');?></div>
   </div>
 
 </div>

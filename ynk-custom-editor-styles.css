@@ -1,0 +1,11 @@
+.pink-capitalized-letters {
+    color: #c60651;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.pink-handwriting {
+    font-family: 'callie_handregular', 'Georgia', serif;
+    font-size: 3em;
+    color: #c60651;
+}

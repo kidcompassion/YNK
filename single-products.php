@@ -11,20 +11,22 @@
 
 <?php if ( have_posts() ) : ?>
     <?php while ( have_posts() ) : the_post(); ?>  
-    <section class="products__wrap">
-    <aside class="products__submenu">
-    <?php get_template_part('sidebar-products', 'product');?> 
-    </aside>
-    <section class="products__content">
+        <section class="products__wrap">
+            <aside class="products__submenu">
+            <?php get_template_part('sidebar-products', 'product');?> 
+            </aside>
+            <section class="products__content">
+                
+                <?php the_post_thumbnail('medium');?>
 
-    <h1><?php the_title();?></h1>
-    <?php the_post_thumbnail('thumbnail');?>
-    <section class="product__description">
-    <p><?php the_content();?></p>
-    </section>
-    <?php get_template_part('collapse', 'product');?>
-</section>
-</section>
+                <section class="product__description">
+                    <h1><?php the_title();?></h1>
+                <p><?php the_content();?></p>
+                </section>
+        
+                <?php get_template_part('collapse', 'product');?>
+            </section>
+        </section>
     <?php endwhile; ?>
 <?php endif; ?>
 

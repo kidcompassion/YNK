@@ -10,6 +10,7 @@
 
 
 <?php get_header();?>
+ <section class="product-landing__wrap">
     <aside class="products__submenu">
         <?php get_template_part('sidebar-products', 'product');?> 
     </aside>
@@ -53,6 +54,7 @@
     <?php else : ?>
         <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
     <?php endif; ?>
+</section>
 </section>
 
 <?php get_footer();?>

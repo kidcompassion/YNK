@@ -7484,6 +7484,9 @@ nav.main-header__primary ul li ul li a {
   color: #c60651;
   font-weight: bold;
 }
+.tabbed__wrap .tab-content {
+  padding: 10px;
+}
 .inner-page__header {
   position: relative;
   min-height: 1px;

@@ -1,9 +1,21 @@
 
 
+.front-page__welcome-content {
+     .make-xs-column(12);
+     
+    @media(min-width:@screen-md-min){
+        .make-md-column(10);
+        padding-left: 90px;
+    }
+}
+
 .front-page__body-content{
     .make-xs-column(12);
-     .make-md-column(6);
-    .make-md-column-offset(1);
+     .make-md-column(4);
+     @media(min-width:@screen-md-min){
+        .make-md-column(4);
+         padding-left: 90px;
+    }
 
     padding-bottom: 20px;
     
@@ -14,4 +26,12 @@
     }
 
 }
+.front-page__sidebar aside{
 
+    @media(min-width:@screen-md-min){
+    margin-top: -180px;
+    position: relative;
+    z-index: -9;
+}
+
+}

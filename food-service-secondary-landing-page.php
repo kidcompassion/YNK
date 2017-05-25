@@ -22,12 +22,13 @@
             <?php endwhile; ?>
         <?php endif; ?>
     </section>
-
+jkdshjkldashjkdsaHJKL
 <section class="product__list">
     <?php //Retrieves the value of the current page (is it retail or food services?) and ensures we display correct products
     $queried_object = get_queried_object();
+    print_r($queried_object);
      $queried_term = $queried_object->post_name;
-
+echo $queried_term;?>
      ?>
     <?php $args = array(
         'post_type'=> 'products',
@@ -41,6 +42,7 @@
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
             <?php if(has_term('food-service', 'product-sectors', $post->ID) === true):?>
+
                 <?php if(has_term($queried_term, 'product-types', $post->ID) === true):?>
                     <?php the_post_thumbnail('thumbnail');?> 
                     <h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>

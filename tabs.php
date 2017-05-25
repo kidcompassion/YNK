@@ -1,4 +1,4 @@
-<div>
+<div class="tabbed-section">
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">

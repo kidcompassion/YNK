@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Food Service Secondary Landing Page
+ * Template Name: Retail Secondary Landing Page
  *
  * @package WordPress
  * @subpackage Starter Theme

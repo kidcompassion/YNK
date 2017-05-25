@@ -1,4 +1,4 @@
-<aside class="sidebar">
+
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -30,4 +30,3 @@
 
  
 </div>
-</aside>
